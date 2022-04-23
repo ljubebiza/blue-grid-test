@@ -1,16 +1,20 @@
 import React from "react";
-import "./styles.css";
+
 import { Facebook, Twitter, Linkedin, Instagram } from "react-feather";
+
+import IconLink from "../parts/IconLink";
+
+import "./styles.css";
 
 export default function Footer() {
   return (
     <footer>
       <div className="coll-1">
         <h4>Find us</h4>
-        <Facebook />
-        <Twitter />
-        <Linkedin />
-        <Instagram />
+        <IconLink link={"https://facebook.com"} Icon={Facebook} />
+        <IconLink link={"https://twitter.com"} Icon={Twitter} />
+        <IconLink link={"https://linkedin.com"} Icon={Linkedin} />
+        <IconLink link={"https://instagram.com"} Icon={Instagram} />
       </div>
       <div className="coll-2">
         <h4>Lorem ipsum</h4>
