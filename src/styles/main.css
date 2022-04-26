@@ -1,3 +1,19 @@
 body {
   margin: 0px;
 }
+.articles-holder {
+  width: 800px;
+  height: 400px;
+  background-color: blanchedalmond;
+  margin: 0 auto;
+  overflow: hidden;
+  overflow-y: scroll;
+  position: sticky;
+  margin-bottom: 10px;
+}
+.article {
+  background-color: green;
+  height: 200px;
+  width: 300px;
+  margin: 5px;
+}
