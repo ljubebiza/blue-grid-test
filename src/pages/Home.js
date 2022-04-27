@@ -1,17 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "../styles/main.css";
 
 import Layout from "../components/Layout";
 import InputForm from "../components/inputForm/InputForm";
-import ArticlesHolder from "../components/ArticleDetail/ArticlesHolder";
+import ArticlesHolder from "../components/ArticlesHolder";
 import { HandleForm } from "../services/HandleForm";
 import { HandleEditForm } from "../services/HandleEditForm";
 
-export default function Home() {
-  const [articles, setArticles] = useState([]);
-  const [textOfArticle, setTextOfArticle] = useState("React");
+export default function Home({ articles, setArticles }) {
+  const [textOfArticle, setTextOfArticle] = useState("");
   const [title, setTitle] = useState("");
   const [startEditing, setStartEditing] = useState(false);
   const [indexOfArticle, setIndexOfArticle] = useState(-1);
@@ -23,6 +23,7 @@ export default function Home() {
       ) : (
         <ArticlesHolder
           articles={articles}
+          setArticles={setArticles}
           setStartEditing={setStartEditing}
           setIndexOfArticle={setIndexOfArticle}
           setTextOfArticle={setTextOfArticle}
@@ -40,7 +41,9 @@ export default function Home() {
               textOfArticle,
               articles,
               indexOfArticle,
-              setStartEditing
+              setStartEditing,
+              setTitle,
+              setTextOfArticle
             );
           }}
           textAreaFunc={(event) => setTextOfArticle(event.target.value)}
@@ -52,9 +55,18 @@ export default function Home() {
           func={(event) => setTitle(event.target.value)}
           buttonText={"Create"}
           buttonFunc={() => {
-            HandleForm(title, textOfArticle, articles, setArticles);
+            HandleForm(
+              title,
+              textOfArticle,
+              articles,
+              setArticles,
+              setTitle,
+              setTextOfArticle
+            );
           }}
           textAreaFunc={(event) => setTextOfArticle(event.target.value)}
+          titleValue={title}
+          value={textOfArticle}
         />
       )}
     </Layout>

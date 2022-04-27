@@ -6,17 +6,26 @@ import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import ArticleDetail from "./components/ArticleDetail/ArticleDetail";
+import { useState } from "react";
+import ArticleDetail from "./pages/ArticleDetail/ArticleDetail";
 
 function App() {
+  const [articles, setArticles] = useState([]);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route element={<Home />} path="/" exact />
+          <Route
+            element={<Home articles={articles} setArticles={setArticles} />}
+            path="/"
+            exact
+          />
           <Route element={<AboutUs />} path="/about-us" exact />
           <Route element={<Contact />} path="/contact" exact />
-          <Route element={<ArticleDetail />} path="/articles/:articleId" />
+          <Route
+            element={<ArticleDetail articles={articles} />}
+            path="/articles/:articleId"
+          />
           <Route element={<NotFound />} path="*" />
         </Routes>
       </BrowserRouter>
