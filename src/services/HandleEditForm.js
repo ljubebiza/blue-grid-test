@@ -1,5 +1,5 @@
 import { Alert } from "./Alert";
-import isInputEmpty from "./isInputEmpty";
+import IsInputEmpty from "./IsInputEmpty";
 
 export const HandleEditForm = (
   title,
@@ -10,7 +10,7 @@ export const HandleEditForm = (
   setTitle,
   setTextOfArticle
 ) => {
-  if (isInputEmpty(title) || isInputEmpty(textOfArticle)) {
+  if (IsInputEmpty(title) || IsInputEmpty(textOfArticle)) {
     Alert("center", "warning", "Please fiil in both fields", 3000);
   } else {
     articles[indexOfArticle].title = title;

@@ -34,6 +34,7 @@ export default function Home({ articles, setArticles }) {
       {startEditing ? (
         <InputForm
           func={(event) => setTitle(event.target.value)}
+          fieldPlaceholder={"Title"}
           buttonText={"Edit"}
           buttonFunc={() => {
             HandleEditForm(
@@ -47,12 +48,13 @@ export default function Home({ articles, setArticles }) {
             );
           }}
           textAreaFunc={(event) => setTextOfArticle(event.target.value)}
-          titleValue={title}
-          value={textOfArticle}
+          inputValue={title}
+          textAreaValue={textOfArticle}
         />
       ) : (
         <InputForm
           func={(event) => setTitle(event.target.value)}
+          fieldPlaceholder={"Title"}
           buttonText={"Create"}
           buttonFunc={() => {
             HandleForm(
@@ -65,8 +67,8 @@ export default function Home({ articles, setArticles }) {
             );
           }}
           textAreaFunc={(event) => setTextOfArticle(event.target.value)}
-          titleValue={title}
-          value={textOfArticle}
+          inputValue={title}
+          textAreaValue={textOfArticle}
         />
       )}
     </Layout>

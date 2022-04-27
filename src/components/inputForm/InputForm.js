@@ -9,14 +9,15 @@ export default function InputForm(props) {
   return (
     <div className="input-form">
       <InputField
-        fieldPlaceholder={"Title"}
+        fieldPlaceholder={props.fieldPlaceholder}
         filedTyp={"text"}
         func={props.func}
-        titleValue={props.titleValue}
+        inputValue={props.inputValue}
       />
+      {props.children}
       <TextArea
         textAreaFunc={props.textAreaFunc}
-        value={props.value}
+        value={props.textAreaValue}
       ></TextArea>
       <Button
         buttonType={"submit"}
