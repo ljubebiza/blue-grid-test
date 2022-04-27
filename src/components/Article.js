@@ -30,7 +30,7 @@ export default function Article(props) {
       <div
         className="article-content"
         onClick={() => {
-          navigate(`/articles/ ${props.index}`);
+          navigate(`/articles/${props.index}`);
         }}
       >
         <h3>{props.article.title}</h3>

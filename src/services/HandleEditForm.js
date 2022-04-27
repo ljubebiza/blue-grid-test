@@ -1,5 +1,5 @@
 import { Alert } from "./Alert";
-import isInputEmpty from "./isInputEmpty";
+import isInputEmpty from "./IsInputEmpty";
 
 export const HandleEditForm = (
   title,

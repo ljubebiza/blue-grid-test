@@ -4,6 +4,7 @@ import InputField from "../parts/InputField";
 import Button from "../parts/Button";
 import TextArea from "../TextArea";
 import "./styles.css";
+import { HandleSubmit } from "../../services/HandleSubmit";
 
 export default function InputForm(props) {
   return (
@@ -12,11 +13,12 @@ export default function InputForm(props) {
         fieldPlaceholder={"Title"}
         filedTyp={"text"}
         func={props.func}
-        titleValue={props.titleValue}
+        inputValue={props.inputValue}
       />
+      {props.children}
       <TextArea
         textAreaFunc={props.textAreaFunc}
-        value={props.value}
+        value={props.textAreaValue}
       ></TextArea>
       <Button
         buttonType={"submit"}

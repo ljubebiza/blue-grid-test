@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import "../styles/main.css";
 
@@ -30,7 +29,6 @@ export default function Home({ articles, setArticles }) {
           setTitle={setTitle}
         />
       )}
-
       {startEditing ? (
         <InputForm
           func={(event) => setTitle(event.target.value)}
@@ -53,6 +51,7 @@ export default function Home({ articles, setArticles }) {
       ) : (
         <InputForm
           func={(event) => setTitle(event.target.value)}
+          inputValue={title}
           buttonText={"Create"}
           buttonFunc={() => {
             HandleForm(
@@ -65,8 +64,7 @@ export default function Home({ articles, setArticles }) {
             );
           }}
           textAreaFunc={(event) => setTextOfArticle(event.target.value)}
-          titleValue={title}
-          value={textOfArticle}
+          textAreaValue={textOfArticle}
         />
       )}
     </Layout>

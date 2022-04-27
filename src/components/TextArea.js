@@ -8,7 +8,7 @@ export default function TextArea(props) {
       name="article"
       placeholder="Type your article here..."
       onChange={props.textAreaFunc}
-      value={props.value}
+      value={props.textAreaValue}
     ></textarea>
   );
 }
