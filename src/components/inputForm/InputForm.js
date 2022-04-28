@@ -17,6 +17,7 @@ export default function InputForm(props) {
       {props.children}
       <TextArea
         textAreaFunc={props.textAreaFunc}
+        textAreaPlaceholder={props.textAreaPlaceholder}
         value={props.textAreaValue}
       ></TextArea>
       <Button

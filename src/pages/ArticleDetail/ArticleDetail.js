@@ -17,7 +17,6 @@ export default function ArticleDetail(props) {
       >
         &lt; Go Back
       </h2>
-      <h1>{articleId}</h1>
       <h1>Title: {props.articles[articleId]?.title}</h1>
       <h2>{props.articles[articleId]?.textOfArticle}</h2>
     </div>

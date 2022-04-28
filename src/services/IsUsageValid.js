@@ -3,18 +3,18 @@ import { Alert } from "./Alert";
 import IsInputEmpty from "./IsInputEmpty";
 
 export const IsUsageValid = (name, email, question) => {
-  if (!IsInputEmpty(name) && !IsInputEmpty(email) && !IsInputEmpty(question)) {
-    Alert("top-end", "warning", "Please fill out all fields");
+  if (IsInputEmpty(name) || IsInputEmpty(email) || IsInputEmpty(question)) {
+    Alert("top-end", "warning", "Please fill out all fields", 2000);
+
     return false;
-  }
-  if (!IsMailValid(email)) {
+  } else if (!IsMailValid(email)) {
     Alert(
       "top-end",
       "warning",
-      "Adress must contain name, @, domain name and domain: example@gmail.com"
+      "Email sould contain name, @, domain name: example@gmail.com",
+      3000
     );
     return false;
   }
-
   return true;
 };

@@ -1,5 +1,7 @@
 import React from "react";
-import Article from "./Article";
+
+import "./styles.css";
+import Article from "../article/Article";
 
 export default function ArticlesHolder(props) {
   return (

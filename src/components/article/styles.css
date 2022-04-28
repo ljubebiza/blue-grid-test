@@ -1,0 +1,64 @@
+.article {
+  background-color: #cde3eb;
+  display: inline-block;
+  color: white;
+  height: 180px;
+  width: 45%;
+  margin: 5px;
+}
+.article {
+  box-shadow: 1px 1px 5px 1px gray;
+}
+.article:hover {
+  cursor: pointer;
+}
+
+.article p {
+  z-index: 1;
+}
+
+.delete-article {
+  display: flex;
+  float: right;
+  margin: 2% 2% 0% 0%;
+  text-decoration: none;
+}
+
+.delete-article a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.delete-article a:hover {
+  background-color: gray;
+}
+.edit-link {
+  display: flex;
+  float: right;
+  margin: 2% 0;
+}
+.edit-link img:hover {
+  background-color: gray;
+}
+.edit-link img {
+  width: 50%;
+}
+.article-content {
+  height: 115px;
+  text-align: center;
+  margin-top: 25px;
+  padding: 1px 1px;
+}
+.article-content b {
+  color: white;
+}
+.article-content p {
+  color: gray;
+}
+.article-date {
+  display: flex;
+  float: right;
+  color: black;
+  padding-right: 5px;
+}

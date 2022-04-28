@@ -1,17 +1,16 @@
 footer {
-  background-color: #cde3eb;
-  height: 250px;
-  position: fixed;
-  width: 100%;
-  left: 0;
-  bottom: 0;
+  display: inline-flex;
+  /* position: absolute; */
   padding: 10px;
-  display: -webkit-inline-box;
   text-align: center;
-  margin-top: 10px;
+  /* bottom: 0; */
+  min-width: 100%;
+  height: 250px;
+  background: #cde3eb;
+  margin-top: -50px;
 }
 .coll-1 {
-  height: 200px;
+  height: auto;
   border-right: 2px solid gray;
   color: gray;
   width: 30%;
@@ -21,7 +20,7 @@ footer {
   color: gray;
 }
 .coll-2 {
-  height: 200px;
+  height: auto;
   color: gray;
   width: 30%;
   margin: 0 auto;
@@ -30,7 +29,7 @@ footer {
   border-left: 2px solid gray;
   width: 30%;
   color: gray;
-  height: 200px;
+  height: auto;
   margin: 0 auto;
 }
 .company-tag {
@@ -40,4 +39,5 @@ footer {
   position: absolute;
   padding: 20px;
   text-align: center;
+  color: white;
 }

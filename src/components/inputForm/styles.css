@@ -1,5 +1,26 @@
 .input-form {
-  display: flex;
+  display: inline-grid;
   justify-content: center;
-  margin-bottom: 300px;
+}
+.input-form input {
+  padding: 13px 5px;
+  margin-bottom: 10px;
+  border: solid 1px gray;
+}
+.input-form textarea {
+  resize: none;
+  margin-bottom: 10px;
+  border: solid 1px gray;
+}
+.input-form button {
+  width: 25%;
+  padding: 12px 1px;
+  color: beige;
+  background-color: blueviolet;
+  border: none;
+  font-weight: bold;
+  margin-left: 293px;
+}
+.input-form button:hover {
+  box-shadow: 1px 1px 2px 1px gray;
 }

@@ -4,6 +4,7 @@ import Layout from "../components/Layout";
 import InputField from "../components/parts/InputField";
 import InputForm from "../components/inputForm/InputForm";
 import { HandleContactForm } from "../services/HandleContactForm";
+import FormContent from "../components/FormContent";
 
 export default function Contact() {
   const [name, setName] = useState("");
@@ -13,19 +14,13 @@ export default function Contact() {
 
   return (
     <Layout>
-      {formValues ? (
-        <div>
-          <h3>Name</h3>
-          {formValues.name}
-          <h3>Email</h3>
-          {formValues.email}
-          <h3>Question</h3>
-          {formValues.question}
-          <p>Thank you for contacting us</p>
-        </div>
-      ) : (
-        ""
-      )}
+      <div className="text-wreper">
+        <h1>Contact us</h1>
+        <p>
+          <strong>Feel</strong> free to reach us for any reason we are on your
+          disposal
+        </p>
+      </div>
       <InputForm
         func={(event) => setName(event.target.value)}
         inputValue={name}
@@ -43,6 +38,7 @@ export default function Contact() {
           );
         }}
         textAreaFunc={(event) => setQuestion(event.target.value)}
+        textAreaPlaceholder={"You can place your question here..."}
         textAreaValue={question}
       >
         <InputField
@@ -53,6 +49,7 @@ export default function Contact() {
           inputValue={email}
         />
       </InputForm>
+      {formValues ? <FormContent formValues={formValues} /> : ""}
     </Layout>
   );
 }

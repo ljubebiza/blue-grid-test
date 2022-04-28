@@ -1,12 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import "../styles/main.css";
 
 import Layout from "../components/Layout";
 import InputForm from "../components/inputForm/InputForm";
-import ArticlesHolder from "../components/ArticlesHolder";
+import ArticlesHolder from "../components/articlesHolder/ArticlesHolder";
 import { HandleForm } from "../services/HandleForm";
 import { HandleEditForm } from "../services/HandleEditForm";
 
@@ -19,7 +18,7 @@ export default function Home({ articles, setArticles }) {
   return (
     <Layout>
       {articles.length === 0 ? (
-        <h1>NO added articles</h1>
+        <h1>No added articles</h1>
       ) : (
         <ArticlesHolder
           articles={articles}
@@ -35,6 +34,7 @@ export default function Home({ articles, setArticles }) {
         <InputForm
           func={(event) => setTitle(event.target.value)}
           fieldPlaceholder={"Title"}
+          inputValue={title}
           buttonText={"Edit"}
           buttonFunc={() => {
             HandleEditForm(
@@ -48,12 +48,13 @@ export default function Home({ articles, setArticles }) {
             );
           }}
           textAreaFunc={(event) => setTextOfArticle(event.target.value)}
-          inputValue={title}
+          textAreaPlaceholder={"Write your article here..."}
           textAreaValue={textOfArticle}
         />
       ) : (
         <InputForm
           func={(event) => setTitle(event.target.value)}
+          inputValue={title}
           fieldPlaceholder={"Title"}
           buttonText={"Create"}
           buttonFunc={() => {
@@ -67,7 +68,7 @@ export default function Home({ articles, setArticles }) {
             );
           }}
           textAreaFunc={(event) => setTextOfArticle(event.target.value)}
-          inputValue={title}
+          textAreaPlaceholder={"Write your article here..."}
           textAreaValue={textOfArticle}
         />
       )}
