@@ -1,0 +1,36 @@
+.form-content {
+  color: gray;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid gray;
+  width: 30%;
+  display: inline-grid;
+  box-shadow: 1px 1px 2px 1px grey;
+  margin-left: 100px;
+  padding: 30px;
+  text-align: left;
+  height: 300px;
+  border-radius: 16px;
+}
+.form-content label {
+  color: black;
+  font-weight: bold;
+  text-align: left;
+}
+.question-text {
+  width: -moz-fit-content;
+  width: fit-content;
+  color: gray;
+  padding: 5px;
+}
+.question-text p {
+  margin: 0 auto;
+}
+.polite-text {
+  margin-left: 110px;
+  margin-top: 100px;
+}
+.line {
+  border: 1px solid gray;
+  width: 95%;
+  margin-bottom: 15px;
+}
