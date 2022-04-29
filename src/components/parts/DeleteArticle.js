@@ -5,7 +5,12 @@ export default function DeleteArticle(props) {
     <div className="delete-article">
       <a
         onClick={() => {
-          DeleteAlert(props.index, props.articles, props.setArticles);
+          DeleteAlert(
+            props.index,
+            props.articles,
+            props.setArticles,
+            props.setStartEditing
+          );
         }}
         href="#"
       >

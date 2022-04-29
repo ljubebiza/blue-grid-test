@@ -12,6 +12,7 @@ export default function Article(props) {
         index={props.index}
         articles={props.articles}
         setArticles={props.setArticles}
+        setStartEditing={props.setStartEditing}
       />
       <EditArticle
         func={() => {
