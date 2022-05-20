@@ -18,7 +18,16 @@ export default function Home({ articles, setArticles }) {
   const [title, setTitle] = useState("");
   const [startEditing, setStartEditing] = useState(false);
   const [indexOfArticle, setIndexOfArticle] = useState(-1);
+  let btn_txt,
+    btn_id = "";
 
+  if (startEditing) {
+    btn_txt = "Edit";
+    btn_id = "edit";
+  } else {
+    btn_txt = "Create";
+    btn_id = "create";
+  }
   const HandleForm = (e) => {
     e.preventDefault();
     if (IsInputEmpty(title) || IsInputEmpty(textOfArticle)) {
@@ -74,20 +83,12 @@ export default function Home({ articles, setArticles }) {
           textAreaPlaceholder={"Write your article here..."}
           value={textOfArticle}
         />
-        {startEditing ? (
-          <Button
-            id={"edit"}
-            buttonType={"submit"}
-            buttonText={"Edit"}
-            buttonFunc={HandleForm}
-          />
-        ) : (
-          <Button
-            buttonType={"submit"}
-            buttonText={"Create"}
-            buttonFunc={HandleForm}
-          />
-        )}
+        <Button
+          id={btn_id}
+          buttonType={"submit"}
+          buttonText={btn_txt}
+          buttonFunc={HandleForm}
+        />
       </form>
     </Layout>
   );
