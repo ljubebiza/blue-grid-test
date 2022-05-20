@@ -9,9 +9,10 @@ import IsInputEmpty from "../services/IsInputEmpty";
 import PopulateArticlesArray from "../services/PopulateArticlesArray";
 import { Alert } from "../services/Alert";
 import { EditForm } from "../services/EditForm";
-import InputField from "../components/parts/InputField";
-import TextArea from "../components/TextArea";
-import Button from "../components/parts/Button";
+import ArtiecleInput from "../components/inputForms/ArticleInput";
+// import InputField from "../components/parts/InputField";
+// import TextArea from "../components/TextArea";
+// import Button from "../components/parts/Button";
 
 export default function Home({ articles, setArticles }) {
   const [textOfArticle, setTextOfArticle] = useState("");
@@ -26,7 +27,7 @@ export default function Home({ articles, setArticles }) {
     btn_id = "edit";
   } else {
     btn_txt = "Create";
-    btn_id = "create";
+    btn_id = "";
   }
   const HandleForm = (e) => {
     e.preventDefault();
@@ -71,7 +72,13 @@ export default function Home({ articles, setArticles }) {
         />
       )}
 
-      <form className="input-form">
+      <ArtiecleInput
+        btn_id={btn_id}
+        btn_txt={btn_txt}
+        articles={articles}
+        setArticles={setArticles}
+      />
+      {/* <form className="input-form">
         <InputField
           fieldPlaceholder={"Title"}
           filedTyp={"text"}
@@ -89,7 +96,7 @@ export default function Home({ articles, setArticles }) {
           buttonText={btn_txt}
           buttonFunc={HandleForm}
         />
-      </form>
+      </form> */}
     </Layout>
   );
 }
