@@ -5,33 +5,40 @@ import { FormatDate } from "../../services/FormatDate";
 import { Alert } from "../../services/Alert";
 import "./styles.css";
 
-export default function ArtiecleInput(props) {
+export default function ArtiecleInput() {
   const [title, setTitle] = useState("");
   const [articleText, setArticleText] = useState("");
   const articlesCtx = useContext(ArticlesContext);
-
   const startEditing = articlesCtx.isForEditing();
 
   useEffect(() => {
     if (startEditing) {
       setTitle(articlesCtx.articles[articlesCtx.getIndex()].title);
-
       setArticleText(
         articlesCtx.articles[articlesCtx.getIndex()].textOfArticle
       );
+    } else {
+      setTitle("");
+      setArticleText("");
     }
   }, [startEditing]);
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    articlesCtx.addArticle({
-      title: title,
-      textOfArticle: articleText,
-      date: FormatDate(),
-      id: articlesCtx.totalArticles + 1,
-    });
-    Alert("center", "success", "Article created successfully", 1500);
+    if (startEditing) {
+      articlesCtx.editArticle(articlesCtx.getIndex(), title, articleText);
+      Alert("center", "success", "Article edited successfully", 2000);
+      articlesCtx.setIndex(-1);
+    } else {
+      articlesCtx.addArticle({
+        title: title,
+        textOfArticle: articleText,
+        date: FormatDate(),
+        id: articlesCtx.totalArticles + 1,
+      });
+      Alert("center", "success", "Article created successfully", 1500);
+    }
     setTitle("");
     setArticleText("");
   }

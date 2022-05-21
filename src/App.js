@@ -10,22 +10,14 @@ import { useState } from "react";
 import ArticleDetail from "./pages/ArticleDetail/ArticleDetail";
 
 function App() {
-  const [articles, setArticles] = useState([]);
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route
-            element={<Home articles={articles} setArticles={setArticles} />}
-            path="/"
-            exact
-          />
+          <Route element={<Home />} path="/" exact />
           <Route element={<AboutUs />} path="/about-us" exact />
           <Route element={<Contact />} path="/contact" exact />
-          <Route
-            element={<ArticleDetail articles={articles} />}
-            path="/articles/:articleId"
-          />
+          <Route element={<ArticleDetail />} path="/articles/:articleId" />
           <Route element={<NotFound />} path="*" />
         </Routes>
       </BrowserRouter>

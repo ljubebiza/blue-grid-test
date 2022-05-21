@@ -4,7 +4,7 @@ const ArticlesContext = createContext({
   articles: [],
   totalArticles: 0,
   addArticle: (article) => {},
-  editArticle: (articleId) => {},
+  editArticle: (index, title, articleText) => {},
   deleteArticle: (articleId) => {},
   setIndex: (articleId) => {},
   getIndex: () => {},
