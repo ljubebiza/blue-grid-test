@@ -23,7 +23,7 @@ export function ArticlesContextProvider(props) {
 
   function editArticleHandler(index, title, articleText) {
     articles[index].title = title;
-    articles[index].articleText = articleText;
+    articles[index].textOfArticle = articleText;
   }
 
   function deleteArticleHandler(articleId) {
