@@ -1,25 +1,21 @@
-import React from "react";
+import { React, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./styles.css";
+import ArticlesContext from "../../store/articles-context";
 import DeleteArticle from "../parts/DeleteArticle";
 import EditArticle from "../parts/EditArticle";
-import { useNavigate } from "react-router-dom";
 
 export default function Article(props) {
   const navigate = useNavigate();
+  const articlesCtx = useContext(ArticlesContext);
+
   return (
     <div className="article">
-      <DeleteArticle
-        index={props.index}
-        articles={props.articles}
-        setArticles={props.setArticles}
-        setStartEditing={props.setStartEditing}
-      />
+      <DeleteArticle id={props.id} />
       <EditArticle
         func={() => {
-          props.setTitle(props.article.title);
-          props.setTextOfArticle(props.article.textOfArticle);
-          props.setStartEditing(true);
-          props.setIndexOfArticle(props.index);
+          articlesCtx.setIndex(props.index);
         }}
       />
       <div
@@ -29,12 +25,12 @@ export default function Article(props) {
         }}
       >
         <p>
-          <b>{props.article.title.slice(0, 20)}</b>
+          <b>{props.title.slice(0, 20)}</b>
         </p>
-        <p>{props.article.textOfArticle.slice(0, 30) + "..."}</p>
+        <p>{props.textOfArticle.slice(0, 30) + "..."}</p>
       </div>
       <div className="article-date">
-        <p>{props.article.date}</p>
+        <p>{props.date}</p>
       </div>
     </div>
   );

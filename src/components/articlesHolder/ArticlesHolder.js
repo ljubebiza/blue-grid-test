@@ -6,18 +6,15 @@ import Article from "../article/Article";
 export default function ArticlesHolder(props) {
   return (
     <div className="articles-holder">
-      {props.articles.map((article, index) => {
+      {props.articlesList.map((article, index) => {
         return (
           <Article
-            article={article}
             key={index}
+            id={article.id}
             index={index}
-            articles={props.articles}
-            setArticles={props.setArticles}
-            setStartEditing={props.setStartEditing}
-            setIndexOfArticle={props.setIndexOfArticle}
-            setTextOfArticle={props.setTextOfArticle}
-            setTitle={props.setTitle}
+            title={article.title}
+            textOfArticle={article.textOfArticle}
+            date={article.date}
           />
         );
       })}

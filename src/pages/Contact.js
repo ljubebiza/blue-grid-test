@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Layout from "../components/Layout";
 import InputField from "../components/parts/InputField";
-import InputForm from "../components/inputForm/InputForm";
+import InputForm from "../components/inputForms/InputForm";
 import { HandleContactForm } from "../services/HandleContactForm";
 import FormContent from "../components/FormContent";
 
