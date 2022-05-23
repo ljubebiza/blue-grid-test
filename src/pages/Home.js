@@ -74,20 +74,12 @@ export default function Home({ articles, setArticles }) {
           textAreaPlaceholder={"Write your article here..."}
           value={textOfArticle}
         />
-        {startEditing ? (
-          <Button
-            id={"edit"}
-            buttonType={"submit"}
-            buttonText={"Edit"}
-            buttonFunc={HandleForm}
-          />
-        ) : (
-          <Button
-            buttonType={"submit"}
-            buttonText={"Create"}
-            buttonFunc={HandleForm}
-          />
-        )}
+        <Button
+          id={startEditing ? "edit" : ""}
+          buttonType={"submit"}
+          buttonText={startEditing ? "Edit" : "Create"}
+          buttonFunc={HandleForm}
+        />
       </form>
     </Layout>
   );
