@@ -4,10 +4,14 @@ import { useState } from "react";
 import "../styles/main.css";
 
 import Layout from "../components/Layout";
-import InputForm from "../components/inputForm/InputForm";
-import ArticlesHolder from "../components/ArticlesHolder";
-import { HandleForm } from "../services/HandleForm";
-import { HandleEditForm } from "../services/HandleEditForm";
+import ArticlesHolder from "../components/articlesHolder/ArticlesHolder";
+import IsInputEmpty from "../services/IsInputEmpty";
+import PopulateArticlesArray from "../services/PopulateArticlesArray";
+import { Alert } from "../services/Alert";
+import { EditForm } from "../services/EditForm";
+import InputField from "../components/parts/InputField";
+import TextArea from "../components/TextArea";
+import Button from "../components/parts/Button";
 
 export default function Home({ articles, setArticles }) {
   const [textOfArticle, setTextOfArticle] = useState("");
@@ -15,10 +19,38 @@ export default function Home({ articles, setArticles }) {
   const [startEditing, setStartEditing] = useState(false);
   const [indexOfArticle, setIndexOfArticle] = useState(-1);
 
+  const HandleForm = (e) => {
+    e.preventDefault();
+    if (IsInputEmpty(title) || IsInputEmpty(textOfArticle)) {
+      Alert("center", "warning", "Please fiil in both fields", 3000);
+    } else {
+      if (startEditing) {
+        EditForm(
+          title,
+          textOfArticle,
+          articles,
+          indexOfArticle,
+          setStartEditing,
+          setTitle,
+          setTextOfArticle
+        );
+      } else {
+        PopulateArticlesArray(
+          title,
+          textOfArticle,
+          articles,
+          setTitle,
+          setTextOfArticle,
+          setArticles
+        );
+      }
+    }
+  };
+
   return (
     <Layout>
       {articles.length === 0 ? (
-        <h1>NO added articles</h1>
+        <h1>No added articles</h1>
       ) : (
         <ArticlesHolder
           articles={articles}
@@ -29,44 +61,34 @@ export default function Home({ articles, setArticles }) {
           setTitle={setTitle}
         />
       )}
-      {startEditing ? (
-        <InputForm
-          func={(event) => setTitle(event.target.value)}
-          buttonText={"Edit"}
-          buttonFunc={() => {
-            HandleEditForm(
-              title,
-              textOfArticle,
-              articles,
-              indexOfArticle,
-              setStartEditing,
-              setTitle,
-              setTextOfArticle
-            );
-          }}
-          textAreaFunc={(event) => setTextOfArticle(event.target.value)}
-          titleValue={title}
-          value={textOfArticle}
-        />
-      ) : (
-        <InputForm
+
+      <form className="input-form">
+        <InputField
+          fieldPlaceholder={"Title"}
+          filedTyp={"text"}
           func={(event) => setTitle(event.target.value)}
           inputValue={title}
-          buttonText={"Create"}
-          buttonFunc={() => {
-            HandleForm(
-              title,
-              textOfArticle,
-              articles,
-              setArticles,
-              setTitle,
-              setTextOfArticle
-            );
-          }}
-          textAreaFunc={(event) => setTextOfArticle(event.target.value)}
-          textAreaValue={textOfArticle}
         />
-      )}
+        <TextArea
+          textAreaFunc={(event) => setTextOfArticle(event.target.value)}
+          textAreaPlaceholder={"Write your article here..."}
+          value={textOfArticle}
+        />
+        {startEditing ? (
+          <Button
+            id={"edit"}
+            buttonType={"submit"}
+            buttonText={"Edit"}
+            buttonFunc={HandleForm}
+          />
+        ) : (
+          <Button
+            buttonType={"submit"}
+            buttonText={"Create"}
+            buttonFunc={HandleForm}
+          />
+        )}
+      </form>
     </Layout>
   );
 }

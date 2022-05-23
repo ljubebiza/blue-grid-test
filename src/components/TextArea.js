@@ -6,9 +6,9 @@ export default function TextArea(props) {
       rows="10"
       cols="50"
       name="article"
-      placeholder="Type your article here..."
+      placeholder={props.textAreaPlaceholder}
       onChange={props.textAreaFunc}
-      value={props.textAreaValue}
+      value={props.value}
     ></textarea>
   );
 }

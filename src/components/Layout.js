@@ -6,7 +6,7 @@ export default function Layout(props) {
   return (
     <>
       <Header />
-      {props.children}
+      <div className="content-wrap">{props.children}</div>
       <Footer />
     </>
   );

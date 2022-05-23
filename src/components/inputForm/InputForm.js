@@ -4,13 +4,12 @@ import InputField from "../parts/InputField";
 import Button from "../parts/Button";
 import TextArea from "../TextArea";
 import "./styles.css";
-import { HandleSubmit } from "../../services/HandleSubmit";
 
 export default function InputForm(props) {
   return (
     <div className="input-form">
       <InputField
-        fieldPlaceholder={"Title"}
+        fieldPlaceholder={props.fieldPlaceholder}
         filedTyp={"text"}
         func={props.func}
         inputValue={props.inputValue}
@@ -18,6 +17,7 @@ export default function InputForm(props) {
       {props.children}
       <TextArea
         textAreaFunc={props.textAreaFunc}
+        textAreaPlaceholder={props.textAreaPlaceholder}
         value={props.textAreaValue}
       ></TextArea>
       <Button

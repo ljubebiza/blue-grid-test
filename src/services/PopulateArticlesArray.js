@@ -1,9 +1,12 @@
 import { FormatDate } from "./FormatDate";
+import { Alert } from "./Alert";
 
 export default function PopulateArticlesArray(
   title,
   textOfArticle,
   articles,
+  setTitle,
+  setTextOfArticle,
   setArticles
 ) {
   const article = {
@@ -13,4 +16,7 @@ export default function PopulateArticlesArray(
     id: articles.length + 1,
   };
   setArticles([...articles, article]);
+  setTitle("");
+  setTextOfArticle("");
+  Alert("center", "success", "Article created successfully", 1500);
 }
