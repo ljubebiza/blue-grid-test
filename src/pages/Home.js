@@ -61,7 +61,6 @@ export default function Home({ articles, setArticles }) {
           setTitle={setTitle}
         />
       )}
-
       <form className="input-form">
         <InputField
           fieldPlaceholder={"Title"}
