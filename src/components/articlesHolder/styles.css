@@ -1,0 +1,26 @@
+.articles-holder {
+  max-width: 70%;
+  height: 370px;
+  margin: 0 auto;
+  overflow: hidden;
+  overflow-y: scroll;
+  position: sticky;
+  margin-bottom: 10px;
+  margin-top: 1%;
+  padding: 1%;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: brown;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
