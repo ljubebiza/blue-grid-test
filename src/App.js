@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 import { useState } from "react";
 import ArticleDetail from "./pages/ArticleDetail/ArticleDetail";
 
-function App() {
+export default function App() {
   const [articles, setArticles] = useState([]);
   return (
     <div className="App">
@@ -32,5 +32,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
