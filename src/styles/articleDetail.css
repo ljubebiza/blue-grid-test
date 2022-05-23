@@ -1,0 +1,30 @@
+.items {
+  margin: 0 auto;
+  background-color: black;
+  width: -moz-fit-content;
+  width: 1000px;
+  height: 500px;
+  color: white;
+  padding: 5px;
+  margin-bottom: 2em;
+  opacity: 0.9;
+}
+.blueGrid-footer-text {
+  bottom: 0px;
+  position: sticky;
+  padding-left: 620px;
+  padding-top: 34px;
+  height: 50px;
+  background-color: #cde3eb;
+  width: 100%;
+}
+.article-header {
+  background-color: #cde3eb;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+}
+.article-header h2:hover {
+  color: gray;
+  cursor: pointer;
+}
